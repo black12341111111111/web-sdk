@@ -1,16 +1,13 @@
-import _ from 'lodash';
-
-import { recordBookEvent, checkIsMultipleRevealEvents, type BookEventHandlerMap } from 'utils-book';
+import { type BookEventHandlerMap } from 'utils-book';
 import { stateBet } from 'state-shared';
-import { sequence } from 'utils-shared/sequence';
 
 import { eventEmitter } from './eventEmitter';
-import { playBookEvent } from './utils';
-import { winLevelMap, type WinLevel, type WinLevelData } from './winLevelMap';
-import { stateGame, stateGameDerived } from './stateGame.svelte';
+import { type WinLevelData } from './winLevelMap';
+import { stateGame } from './stateGame.svelte';
 import type { BookEvent, BookEventOfType, BookEventContext } from './typesBookEvent';
 import type { Position } from './types';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const winLevelSoundsPlay = ({ winLevelData }: { winLevelData: WinLevelData }) => {
 	if (winLevelData?.alias === 'max') eventEmitter.broadcastAsync({ type: 'uiHide' });
 	if (winLevelData?.sound?.sfx) {
@@ -24,6 +21,7 @@ const winLevelSoundsPlay = ({ winLevelData }: { winLevelData: WinLevelData }) =>
 	}
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const winLevelSoundsStop = () => {
 	eventEmitter.broadcast({ type: 'soundStop', name: 'sfx_bigwin_coinloop' });
 	if (stateBet.activeBetModeKey === 'SUPERSPIN' || stateGame.gameType === 'freegame') {
@@ -35,6 +33,7 @@ const winLevelSoundsStop = () => {
 	eventEmitter.broadcastAsync({ type: 'uiShow' });
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const animateSymbols = async ({ positions }: { positions: Position[] }) => {
 	eventEmitter.broadcast({ type: 'boardShow' });
 	await eventEmitter.broadcastAsync({
@@ -44,6 +43,7 @@ const animateSymbols = async ({ positions }: { positions: Position[] }) => {
 };
 
 export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContext> = {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	winInfo: async (bookEvent: BookEventOfType<'reveal'>, { bookEvents }: BookEventContext) => {
 		await eventEmitter.broadcastAsync({ type: 'winInfo', data: bookEvent });
 	},

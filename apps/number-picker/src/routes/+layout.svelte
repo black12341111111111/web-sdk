@@ -13,7 +13,9 @@
 
 	let showYourLoader = $state(false);
 
+	// eslint-disable-next-line no-undef
 	const loaderUrlStakeEngine = new URL('../../stake-engine-loader.gif', import.meta.url).href;
+	// eslint-disable-next-line no-undef
 	const loaderUrl = new URL('../../loader.gif', import.meta.url).href;
 
 	setContext();

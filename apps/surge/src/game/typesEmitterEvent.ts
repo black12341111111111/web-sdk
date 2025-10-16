@@ -4,6 +4,7 @@
  * Each component exports its own EmitterEvent type
  */
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { EmitterEventUi } from 'components-ui-pixi';
 import type { EmitterEventBoard } from '../components/Board.svelte';
 import type { EmitterEventWin } from '../components/Win.svelte';

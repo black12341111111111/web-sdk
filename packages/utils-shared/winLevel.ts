@@ -52,6 +52,7 @@ function createGetWinLevelDataByBookEventAmount<
 		)
 			.sort((a, b) => b[1] - a[1])
 			.find(
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				([_, betAmountMultiplierThreshold]) => betAmountMultiplier >= betAmountMultiplierThreshold,
 			) as WinLevelThreshold;
 		const winLevel = winLevelToBetAmountMultiplierThreshold?.[0];

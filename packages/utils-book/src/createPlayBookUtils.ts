@@ -2,6 +2,7 @@ import { sequence } from 'utils-shared/sequence';
 
 import type { BookEventHandlerMap, GetBookEventFromMap, GetBookEventContextFromMap } from './types';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function createPlayBookUtils<TBookEventHandlerMap extends BookEventHandlerMap<any, any>>({
 	bookEventHandlerMap,
 	debug,

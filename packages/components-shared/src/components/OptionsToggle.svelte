@@ -1,6 +1,7 @@
 <script lang="ts" generics="TValue extends string | number">
 	import type { Snippet } from 'svelte';
 
+	/* eslint-disable no-unused-vars */
 	type Props = {
 		value: TValue;
 		options: Readonly<TValue[]>;
@@ -16,6 +17,7 @@
 			]
 		>;
 	};
+	/* eslint-enable no-unused-vars */
 
 	const props: Props = $props();
 

@@ -15,6 +15,7 @@
 
 	let { value = $bindable(), children }: Props = $props();
 	const { eventEmitter } = getContextEventEmitter<EmitterEventModal>();
+	// eslint-disable-next-line no-unused-vars
 	const ICONS = { on: 'volumeOn', off: 'volumeOff' } as const;
 </script>
 

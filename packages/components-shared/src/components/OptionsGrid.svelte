@@ -3,6 +3,7 @@
 
 	import Button from './Button.svelte';
 
+	/* eslint-disable no-unused-vars */
 	type Props = {
 		value: TValue;
 		options: Readonly<TValue[]>;
@@ -10,6 +11,7 @@
 		onchange: (value: TValue) => void;
 		option: Snippet<[{ option: TValue; index: number }]>;
 	};
+	/* eslint-enable no-unused-vars */
 
 	const props: Props = $props();
 </script>

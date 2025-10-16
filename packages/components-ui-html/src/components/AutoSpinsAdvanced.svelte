@@ -10,7 +10,9 @@
 	import { i18nDerived } from '../i18n/i18nDerived';
 
 	type Props = {
+		/* eslint-disable no-unused-vars */
 		ontoggle: (duration: number) => void;
+		/* eslint-enable no-unused-vars */
 	};
 
 	const props: Props = $props();

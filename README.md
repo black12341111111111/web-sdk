@@ -86,7 +86,7 @@ cd web-sdk
 pnpm install
 ```
 
-WIth out any error messages showing up, you are good to continue.
+Without any error messages showing up, you are good to continue.
 
 <a name="runInStorybook"></a>
 
