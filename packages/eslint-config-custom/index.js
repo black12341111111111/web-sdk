@@ -1,19 +1,63 @@
-module.exports = {
-  parser: '@typescript-eslint/parser',
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'turbo', 'prettier'],
-  plugins: ['svelte3', '@typescript-eslint'],
-  ignorePatterns: ['*.cjs'],
-  overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
-  settings: {
-    'svelte3/typescript': () => require('typescript')
+const js = require('@eslint/js');
+const tsPlugin = require('@typescript-eslint/eslint-plugin');
+const tsParser = require('@typescript-eslint/parser');
+const sveltePlugin = require('eslint-plugin-svelte');
+const svelteParser = require('svelte-eslint-parser');
+const prettierConfig = require('eslint-config-prettier');
+const globals = require('globals');
+
+module.exports = [
+  // Base JavaScript configuration
+  js.configs.recommended,
+  
+  // Prettier configuration (must be last to override)
+  prettierConfig,
+  
+  // TypeScript files
+  {
+    files: ['**/*.{js,mjs,cjs,ts,tsx,mts,cts}'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.es2021,
+        ...globals.node,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
+    rules: {
+      ...tsPlugin.configs.recommended.rules,
+    },
   },
-  parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 2020,
+  
+  // Svelte files
+  ...sveltePlugin.configs['flat/recommended'],
+  {
+    files: ['**/*.svelte'],
+    languageOptions: {
+      parser: svelteParser,
+      parserOptions: {
+        parser: tsParser,
+      },
+    },
   },
-  env: {
-    browser: true,
-    es2017: true,
-    node: true
+  
+  // Ignores
+  {
+    ignores: [
+      '**/*.cjs',
+      '**/node_modules/**',
+      '**/.turbo/**',
+      '**/dist/**',
+      '**/build/**',
+      '**/.svelte-kit/**',
+      '**/coverage/**',
+    ],
   },
-};
+];
