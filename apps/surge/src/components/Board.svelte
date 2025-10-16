@@ -78,7 +78,7 @@
 	<!-- Render all reels and their symbols -->
 	{#each stateGame.board as reel, reelIndex (reelIndex)}
 		<Container x={getSymbolX(reelIndex)} y={0}>
-			{#each reel.reelState.symbols as reelSymbol}
+			{#each reel.reelState.symbols as reelSymbol, symbolIndex (symbolIndex)}
 				<Symbol
 					{reelSymbol}
 					{reelIndex}

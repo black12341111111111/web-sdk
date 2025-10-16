@@ -11,7 +11,6 @@
 	import { EnableHotkey } from 'components-shared';
 	import { UI, UiGameName } from 'components-ui-pixi';
 	import { GameVersion, Modals } from 'components-ui-html';
-	import { stateModal } from 'state-shared';
 
 	import { getContext } from '../game/context';
 	import LoadingScreen from './LoadingScreen.svelte';

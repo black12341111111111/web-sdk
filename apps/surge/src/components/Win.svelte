@@ -20,6 +20,7 @@
 
 	// Component state
 	let show = $state(false);
+	// eslint-disable-next-line no-unused-vars
 	let amount = $state(0);
 	let positions = $state<{ reel: number; row: number }[]>([]);
 	let countUpAmount = $state(0);
@@ -111,7 +112,7 @@
 	</Container>
 
 	<!-- Highlight winning symbols -->
-	{#each positions as position}
+	{#each positions as position, index (index)}
 		<Container
 			x={context.stateGameDerived.boardLayout().x + position.reel * SYMBOL_SIZE}
 			y={context.stateGameDerived.boardLayout().y + position.row * SYMBOL_SIZE}

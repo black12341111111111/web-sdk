@@ -61,7 +61,7 @@
 	<StoryLocale lang="en">
 		<App>
 			<Container x={50} y={50}>
-				{#each allSymbols as symbolName, index}
+				{#each allSymbols as symbolName, index (index)}
 					<Symbol
 						x={(index % 4) * 180}
 						y={Math.floor(index / 4) * 180}
@@ -79,7 +79,7 @@
 	<StoryLocale lang="en">
 		<App>
 			<Container x={50} y={50}>
-				{#each allStates as state, index}
+				{#each allStates as state, index (index)}
 					<Symbol
 						x={(index % 3) * 200}
 						y={Math.floor(index / 3) * 200}

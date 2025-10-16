@@ -9,12 +9,12 @@ import { createGetEmptyPaddedBoard } from 'utils-slots';
 import { SYMBOL_SIZE, REEL_PADDING, BOARD_DIMENSIONS } from './constants';
 import { eventEmitter } from './eventEmitter';
 import { bookEventHandlerMap } from './bookEventHandlerMap';
-import type { RawSymbol, SymbolState } from './types';
 
 // General utils
 export const { getEmptyBoard } = createGetEmptyPaddedBoard({ reelsDimensions: BOARD_DIMENSIONS });
 export const { playBookEvent, playBookEvents } = createPlayBookUtils({ bookEventHandlerMap });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const playBet = async (bet: any) => {
 	stateBet.winBookEventAmount = 0;
 	await playBookEvents(bet.state);
