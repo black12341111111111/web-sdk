@@ -52,25 +52,13 @@ export default [
 			},
 			{
 				index: 1,
-				type: 'winInfo',
-				totalWin: 500,
-				wins: [
-					{
-						symbol: 'H1',
-						kind: 4,
-						win: 500,
-						positions: [
-							{ reel: 0, row: 0 },
-							{ reel: 1, row: 0 },
-							{ reel: 2, row: 0 },
-							{ reel: 3, row: 0 },
-						],
-						meta: {
-							multiplier: 1,
-							winWithoutMult: 500,
-							globalMult: 1,
-						},
-					},
+				type: 'win',
+				winAmount: 500,
+				winPositions: [
+					{ reel: 0, row: 0 },
+					{ reel: 1, row: 0 },
+					{ reel: 2, row: 0 },
+					{ reel: 3, row: 0 },
 				],
 			},
 			{ index: 2, type: 'setTotalWin', amount: 500 },
@@ -102,13 +90,8 @@ export default [
 			},
 			{
 				index: 1,
-				type: 'freeSpinTrigger',
+				type: 'freeSpinStart',
 				totalFs: 10,
-				scatterPositions: [
-					{ reel: 0, row: 0 },
-					{ reel: 2, row: 1 },
-					{ reel: 4, row: 1 },
-				],
 			},
 			{ index: 2, type: 'setTotalWin', amount: 0 },
 			{ index: 3, type: 'finalWin', amount: 0 },
@@ -139,14 +122,7 @@ export default [
 			},
 			{
 				index: 1,
-				type: 'bonusTrigger',
-				bonusType: 'heist',
-				picks: 5,
-				bonusPositions: [
-					{ reel: 1, row: 0 },
-					{ reel: 2, row: 1 },
-					{ reel: 3, row: 2 },
-				],
+				type: 'bonusStart',
 			},
 			{ index: 2, type: 'setTotalWin', amount: 0 },
 			{ index: 3, type: 'finalWin', amount: 0 },
@@ -177,40 +153,26 @@ export default [
 			},
 			{
 				index: 1,
-				type: 'multiplier',
+				type: 'updateMultiplier',
 				multiplier: 3,
-				position: { reel: 1, row: 1 },
 			},
 			{
 				index: 2,
-				type: 'stickyWild',
+				type: 'addStickyWild',
 				positions: [
 					{ reel: 0, row: 0 },
 					{ reel: 2, row: 1 },
 				],
-				spinsRemaining: 3,
 			},
 			{
 				index: 3,
-				type: 'winInfo',
-				totalWin: 3000,
-				wins: [
-					{
-						symbol: 'H2',
-						kind: 4,
-						win: 3000,
-						positions: [
-							{ reel: 0, row: 0 },
-							{ reel: 1, row: 0 },
-							{ reel: 2, row: 0 },
-							{ reel: 3, row: 0 },
-						],
-						meta: {
-							multiplier: 3,
-							winWithoutMult: 1000,
-							globalMult: 3,
-						},
-					},
+				type: 'win',
+				winAmount: 3000,
+				winPositions: [
+					{ reel: 0, row: 0 },
+					{ reel: 1, row: 0 },
+					{ reel: 2, row: 0 },
+					{ reel: 3, row: 0 },
 				],
 			},
 			{ index: 4, type: 'setTotalWin', amount: 3000 },
@@ -218,6 +180,143 @@ export default [
 		],
 		criteria: 'big_win_with_features',
 		baseGameWins: 3.0,
+		freeGameWins: 0.0,
+	},
+
+	// Big win with max multiplier
+	{
+		id: 6,
+		payoutMultiplier: 10.0,
+		events: [
+			{
+				index: 0,
+				type: 'reveal',
+				board: [
+					[{ name: 'H1' }, { name: 'H1' }, { name: 'H1' }, { name: 'H1' }],
+					[{ name: 'H1' }, { name: 'P' }, { name: 'H1' }, { name: 'H1' }],
+					[{ name: 'H1' }, { name: 'H1' }, { name: 'H1' }, { name: 'H1' }],
+					[{ name: 'H1' }, { name: 'H1' }, { name: 'H1' }, { name: 'H1' }],
+					[{ name: 'H1' }, { name: 'H1' }, { name: 'H1' }, { name: 'H1' }],
+				],
+				paddingPositions: [80, 90, 95, 85, 100],
+				gameType: 'basegame',
+				anticipation: [1, 1, 1, 1, 1],
+			},
+			{
+				index: 1,
+				type: 'updateMultiplier',
+				multiplier: 10,
+			},
+			{
+				index: 2,
+				type: 'win',
+				winAmount: 10000,
+				winPositions: [
+					{ reel: 0, row: 0 },
+					{ reel: 1, row: 0 },
+					{ reel: 2, row: 0 },
+					{ reel: 3, row: 0 },
+					{ reel: 4, row: 0 },
+				],
+			},
+			{ index: 3, type: 'setTotalWin', amount: 10000 },
+			{ index: 4, type: 'finalWin', amount: 10000 },
+		],
+		criteria: 'max_multiplier_big_win',
+		baseGameWins: 10.0,
+		freeGameWins: 0.0,
+	},
+
+	// Multiple wins
+	{
+		id: 7,
+		payoutMultiplier: 2.5,
+		events: [
+			{
+				index: 0,
+				type: 'reveal',
+				board: [
+					[{ name: 'H2' }, { name: 'H2' }, { name: 'M1' }, { name: 'L1' }],
+					[{ name: 'H2' }, { name: 'M2' }, { name: 'M1' }, { name: 'L2' }],
+					[{ name: 'H2' }, { name: 'L3' }, { name: 'M1' }, { name: 'L3' }],
+					[{ name: 'H2' }, { name: 'L4' }, { name: 'M1' }, { name: 'L4' }],
+					[{ name: 'L5' }, { name: 'L5' }, { name: 'L5' }, { name: 'L5' }],
+				],
+				paddingPositions: [90, 95, 100, 105, 110],
+				gameType: 'basegame',
+				anticipation: [1, 1, 1, 1, 0],
+			},
+			{
+				index: 1,
+				type: 'win',
+				winAmount: 1500,
+				winPositions: [
+					{ reel: 0, row: 0 },
+					{ reel: 1, row: 0 },
+					{ reel: 2, row: 0 },
+					{ reel: 3, row: 0 },
+				],
+			},
+			{
+				index: 2,
+				type: 'win',
+				winAmount: 1000,
+				winPositions: [
+					{ reel: 0, row: 2 },
+					{ reel: 1, row: 2 },
+					{ reel: 2, row: 2 },
+					{ reel: 3, row: 2 },
+				],
+			},
+			{ index: 3, type: 'setTotalWin', amount: 2500 },
+			{ index: 4, type: 'finalWin', amount: 2500 },
+		],
+		criteria: 'multiple_wins',
+		baseGameWins: 2.5,
+		freeGameWins: 0.0,
+	},
+
+	// Full board wilds
+	{
+		id: 8,
+		payoutMultiplier: 50.0,
+		events: [
+			{
+				index: 0,
+				type: 'reveal',
+				board: [
+					[{ name: 'W' }, { name: 'W' }, { name: 'W' }, { name: 'W' }],
+					[{ name: 'W' }, { name: 'W' }, { name: 'W' }, { name: 'W' }],
+					[{ name: 'W' }, { name: 'W' }, { name: 'W' }, { name: 'W' }],
+					[{ name: 'W' }, { name: 'W' }, { name: 'W' }, { name: 'W' }],
+					[{ name: 'W' }, { name: 'W' }, { name: 'W' }, { name: 'W' }],
+				],
+				paddingPositions: [50, 60, 70, 80, 90],
+				gameType: 'basegame',
+				anticipation: [1, 1, 1, 1, 1],
+			},
+			{
+				index: 1,
+				type: 'updateMultiplier',
+				multiplier: 5,
+			},
+			{
+				index: 2,
+				type: 'win',
+				winAmount: 50000,
+				winPositions: [
+					{ reel: 0, row: 0 },
+					{ reel: 1, row: 0 },
+					{ reel: 2, row: 0 },
+					{ reel: 3, row: 0 },
+					{ reel: 4, row: 0 },
+				],
+			},
+			{ index: 3, type: 'setTotalWin', amount: 50000 },
+			{ index: 4, type: 'finalWin', amount: 50000 },
+		],
+		criteria: 'full_board_wilds',
+		baseGameWins: 50.0,
 		freeGameWins: 0.0,
 	},
 ];
