@@ -39,11 +39,11 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	 * Win - Show win animation and amount
 	 */
 	win: async (bookEvent: BookEventOfType<'win'>) => {
-		// await eventEmitter.broadcastAsync({
-		// 	type: 'showWin',
-		// 	amount: bookEvent.winAmount,
-		// 	positions: bookEvent.winPositions,
-		// });
+		await eventEmitter.broadcastAsync({
+			type: 'winShow',
+			amount: bookEvent.winAmount,
+			positions: bookEvent.winPositions,
+		});
 
 		console.log('Win bookEvent:', bookEvent);
 	},
@@ -78,10 +78,10 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	updateMultiplier: async (bookEvent: BookEventOfType<'updateMultiplier'>) => {
 		stateGame.currentMultiplier = bookEvent.multiplier;
 
-		// eventEmitter.broadcast({
-		// 	type: 'multiplierUpdate',
-		// 	multiplier: bookEvent.multiplier,
-		// });
+		eventEmitter.broadcast({
+			type: 'multiplierUpdate',
+			multiplier: bookEvent.multiplier,
+		});
 
 		console.log('UpdateMultiplier bookEvent:', bookEvent);
 	},
@@ -92,10 +92,10 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	addStickyWild: async (bookEvent: BookEventOfType<'addStickyWild'>) => {
 		stateGame.stickyWilds = [...stateGame.stickyWilds, ...bookEvent.positions];
 
-		// await eventEmitter.broadcastAsync({
-		// 	type: 'stickyWildAdd',
-		// 	positions: bookEvent.positions,
-		// });
+		await eventEmitter.broadcastAsync({
+			type: 'stickyWildsAdd',
+			positions: bookEvent.positions,
+		});
 
 		console.log('AddStickyWild bookEvent:', bookEvent);
 	},
@@ -106,9 +106,9 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	clearStickyWilds: async (bookEvent: BookEventOfType<'clearStickyWilds'>) => {
 		stateGame.stickyWilds = [];
 
-		// eventEmitter.broadcast({
-		// 	type: 'stickyWildClear',
-		// });
+		eventEmitter.broadcast({
+			type: 'stickyWildsClear',
+		});
 
 		console.log('ClearStickyWilds bookEvent:', bookEvent);
 	},
