@@ -25,13 +25,12 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		// Update game state
 		stateGame.gameType = bookEvent.gameType;
 
-		// Broadcast emitter events for board spin
-		// Components will subscribe to these events
-		// await eventEmitter.broadcastAsync({
-		// 	type: 'boardSpin',
-		// 	board: bookEvent.board,
-		// 	anticipation: bookEvent.anticipation,
-		// });
+		// Start the spin animation
+		await eventEmitter.broadcastAsync({
+			type: 'boardSpin',
+			board: bookEvent.board,
+			anticipation: bookEvent.anticipation,
+		});
 
 		console.log('Reveal bookEvent:', bookEvent);
 	},

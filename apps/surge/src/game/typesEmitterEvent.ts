@@ -5,11 +5,13 @@
  */
 
 import type { EmitterEventUi } from 'components-ui-pixi';
+import type { EmitterEventBoard } from '../components/Board.svelte';
 
 // Game-specific emitter events will be imported here as they're created
 // Example: import type { EmitterEventBoard } from '../components/Board.svelte';
 
 export type EmitterEventGame = 
+	| EmitterEventBoard
 	| { type: 'gameInit' }
 	| { type: 'gameReset' };
 
