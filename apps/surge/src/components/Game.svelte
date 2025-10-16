@@ -16,10 +16,11 @@
 	import { getContext } from '../game/context';
 	import LoadingScreen from './LoadingScreen.svelte';
 	import Board from './Board.svelte';
+	import Win from './Win.svelte';
+	import MultiplierDisplay from './MultiplierDisplay.svelte';
+	import StickyWildsDisplay from './StickyWildsDisplay.svelte';
 	// Additional components will be added as they're created
 	// import Background from './Background.svelte';
-	// import MultiplierDisplay from './MultiplierDisplay.svelte';
-	// import StickyWildsDisplay from './StickyWildsDisplay.svelte';
 	// import HeistBonus from './HeistBonus.svelte';
 
 	const context = getContext();
@@ -54,11 +55,12 @@
 		<!-- Main game board container -->
 		<MainContainer>
 			<Board />
+			<Win />
+			<StickyWildsDisplay />
 		</MainContainer>
 
 		<!-- Feature displays -->
-		<!-- <MultiplierDisplay /> -->
-		<!-- <StickyWildsDisplay /> -->
+		<MultiplierDisplay />
 
 		<!-- Bonus feature -->
 		<!-- <HeistBonus /> -->

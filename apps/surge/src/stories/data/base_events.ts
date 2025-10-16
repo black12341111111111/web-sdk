@@ -19,85 +19,83 @@ export default {
 		anticipation: [0, 0, 0, 0, 0],
 	},
 
-	setTotalWin: {
+	win: {
 		index: 1,
+		type: 'win',
+		winAmount: 500,
+		winPositions: [
+			{ reel: 0, row: 0 },
+			{ reel: 1, row: 0 },
+			{ reel: 2, row: 0 },
+			{ reel: 3, row: 0 },
+		],
+	},
+
+	setTotalWin: {
+		index: 2,
 		type: 'setTotalWin',
 		amount: 1000,
 	},
 
-	multiplier: {
-		index: 2,
-		type: 'multiplier',
+	updateMultiplier: {
+		index: 3,
+		type: 'updateMultiplier',
 		multiplier: 3,
-		position: { reel: 2, row: 1 },
 	},
 
-	stickyWild: {
-		index: 3,
-		type: 'stickyWild',
+	addStickyWild: {
+		index: 4,
+		type: 'addStickyWild',
 		positions: [
 			{ reel: 1, row: 1 },
 			{ reel: 3, row: 2 },
 		],
-		spinsRemaining: 3,
 	},
 
-	winInfo: {
-		index: 4,
-		type: 'winInfo',
-		totalWin: 500,
-		wins: [
-			{
-				symbol: 'H1',
-				kind: 4,
-				win: 500,
-				positions: [
-					{ reel: 0, row: 0 },
-					{ reel: 1, row: 0 },
-					{ reel: 2, row: 0 },
-					{ reel: 3, row: 0 },
-				],
-				meta: {
-					multiplier: 1,
-					winWithoutMult: 500,
-					globalMult: 1,
-				},
-			},
-		],
-	},
-
-	freeSpinTrigger: {
+	clearStickyWilds: {
 		index: 5,
-		type: 'freeSpinTrigger',
+		type: 'clearStickyWilds',
+	},
+
+	freeSpin: {
+		index: 6,
+		type: 'freeSpin',
 		totalFs: 10,
-		scatterPositions: [
-			{ reel: 0, row: 1 },
-			{ reel: 2, row: 2 },
-			{ reel: 4, row: 1 },
-		],
+		remainingFs: 5,
 	},
 
 	updateFreeSpin: {
-		index: 6,
+		index: 7,
 		type: 'updateFreeSpin',
-		amount: 5,
+		current: 5,
 		total: 10,
 	},
 
-	bonusTrigger: {
-		index: 7,
-		type: 'bonusTrigger',
-		bonusType: 'heist',
-		picks: 5,
-		bonusPositions: [
-			{ reel: 1, row: 0 },
-			{ reel: 2, row: 1 },
-			{ reel: 3, row: 2 },
-		],
+	freeSpinStart: {
+		index: 8,
+		type: 'freeSpinStart',
+		totalFs: 10,
+	},
+
+	freeSpinEnd: {
+		index: 9,
+		type: 'freeSpinEnd',
+		totalWin: 2500,
+	},
+
+	bonusStart: {
+		index: 10,
+		type: 'bonusStart',
+	},
+
+	bonusEnd: {
+		index: 11,
+		type: 'bonusEnd',
+		totalWin: 5000,
 	},
 
 	finalWin: {
-		index: 8,
+		index: 12,
 		type: 'finalWin',
 		amount: 2500,
 	},

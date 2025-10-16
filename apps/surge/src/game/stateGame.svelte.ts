@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { createReelForSpinning } from 'utils-slots';
+import { createReelForSpinning, createEnhanceBoard } from 'utils-slots';
 import type { RawSymbol, SymbolState } from './types';
 import { SPIN_OPTIONS_DEFAULT, SPIN_OPTIONS_FAST, SYMBOL_SIZE, BOARD_DIMENSIONS } from './constants';
 
@@ -58,4 +58,7 @@ export const stateGameDerived = {
 	
 	boardRaw: () =>
 		board.map((reel) => reel.reelState.symbols.map((reelSymbol) => reelSymbol.rawSymbol)),
+	
+	// Enhanced board with spinning functionality
+	enhancedBoard: createEnhanceBoard().enhanceBoard({ board }),
 };

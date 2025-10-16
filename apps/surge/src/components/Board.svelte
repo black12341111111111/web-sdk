@@ -1,3 +1,17 @@
+<script lang="ts" module>
+	import type { RawSymbol } from '../game/types';
+
+	/**
+	 * Emitter Events for Board Component
+	 */
+	export type EmitterEventBoard =
+		| { type: 'boardSpin'; board: RawSymbol[][]; anticipation: number[] }
+		| { type: 'boardSettle'; board: RawSymbol[][] }
+		| { type: 'boardShow' }
+		| { type: 'boardHide' }
+		| { type: 'stopButtonClick' };
+</script>
+
 <script lang="ts">
 	/**
 	 * Board Component - Main Reel Board for Syndicate Surge
@@ -14,6 +28,23 @@
 
 	// Subscribe to board events
 	eventEmitter.subscribeOnMount({
+		// Start spinning the reels
+		boardSpin: async ({ board, anticipation }) => {
+			console.log('🎰 Board spinning with anticipation:', anticipation);
+			
+			// Trigger the spin with the result board and anticipation
+			await stateGameDerived.enhancedBoard.spin({
+				rawBoard: board,
+				anticipation: anticipation,
+			});
+			
+			// After spin completes, broadcast settle event
+			eventEmitter.broadcast({
+				type: 'boardSettle',
+				board: board,
+			});
+		},
+
 		// Stop all reels when stop button is clicked
 		stopButtonClick: () => {
 			console.log('🛑 Stop button clicked - stopping reels');
