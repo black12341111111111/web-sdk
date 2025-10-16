@@ -7,7 +7,9 @@ export type EmitterEventBase = {
 export function createEventEmitter<TEmitterEvent extends EmitterEventBase>() {
 	type EmitterEventType = TEmitterEvent['type'];
 	type EmitterEventOfType<T> = Extract<TEmitterEvent, { type: T }>;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	type EmitterEventHandler = (emitterEvent: TEmitterEvent) => any;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	type EmitterEventHandlerOfType<T> = (emitterEvent: EmitterEventOfType<T>) => any;
 	type EmitterEventHandlerMap = { [T in EmitterEventType]: EmitterEventHandlerOfType<T> };
 

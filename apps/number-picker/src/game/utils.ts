@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { stateBet } from 'state-shared';
 import { createPlayBookUtils } from 'utils-book';
 import { createGetEmptyPaddedBoard } from 'utils-slots';
@@ -29,10 +28,10 @@ const BOOK_EVENT_TYPES_TO_RESERVE_FOR_SNAPSHOT = [
 export const convertTorResumableBet = (lastBetData: Bet) => {
 	const resumingIndex = Number(lastBetData.event);
 	const bookEventsBeforeResume = lastBetData.state.filter(
-		(_, eventIndex) => eventIndex < resumingIndex,
+		(bookEvent, eventIndex) => eventIndex < resumingIndex,
 	);
 	const bookEventsAfterResume = lastBetData.state.filter(
-		(_, eventIndex) => eventIndex >= resumingIndex,
+		(bookEvent, eventIndex) => eventIndex >= resumingIndex,
 	);
 
 	const bookEventToCreateSnapshot: BookEventOfType<'createBonusSnapshot'> = {

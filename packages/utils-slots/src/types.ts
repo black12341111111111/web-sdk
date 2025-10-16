@@ -75,6 +75,7 @@ export type FallOptionsTurbo = {
 	fallOutIntervalTurbo: number;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type GetRawSymbolFromReel<TReel extends Reel<any, any>> = NonNullable<
 	FirstArgOf<TReel['setSymbolsWithRawSymbols']>
 >[number];

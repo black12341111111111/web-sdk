@@ -16,6 +16,7 @@ module.exports = [
   // TypeScript files
   {
     files: ['**/*.{js,mjs,cjs,ts,tsx,mts,cts}'],
+    ignores: ['**/*.svelte.ts', '**/*.svelte.js'], // Svelte 5 runes files are handled differently
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -52,6 +53,8 @@ module.exports = [
   {
     ignores: [
       '**/*.cjs',
+      '**/*.svelte.ts', // Svelte 5 runes files - skip for now due to parser limitations
+      '**/*.svelte.js',
       '**/node_modules/**',
       '**/.turbo/**',
       '**/dist/**',
