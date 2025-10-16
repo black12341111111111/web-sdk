@@ -1,12 +1,14 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
+	/* eslint-disable no-unused-vars */
 	type Props = {
 		open?: boolean;
 		disabled?: boolean;
 		onchange: (open: boolean) => void;
 		children: Snippet;
 	};
+	/* eslint-enable no-unused-vars */
 
 	const props: Props = $props();
 </script>

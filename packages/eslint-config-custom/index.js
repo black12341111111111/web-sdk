@@ -46,6 +46,10 @@ module.exports = [
       parserOptions: {
         parser: tsParser,
       },
+      globals: {
+        ...globals.browser,
+        ...globals.es2021,
+      },
     },
   },
   
