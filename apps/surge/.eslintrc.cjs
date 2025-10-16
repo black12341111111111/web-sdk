@@ -1,1 +1,4 @@
-export const extends = ["plugin:storybook/recommended"];
+module.exports = {
+	root: true,
+	extends: ["custom", "plugin:storybook/recommended"],
+};
