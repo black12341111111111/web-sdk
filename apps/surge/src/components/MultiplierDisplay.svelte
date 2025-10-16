@@ -23,6 +23,7 @@
 	let show = $state(true); // Always visible
 	let multiplier = $state(1);
 	let animationScale = $state(1.0);
+	let animationTimeout: number | undefined;
 
 	// Subscribe to multiplier events
 	context.eventEmitter.subscribeOnMount({
@@ -37,15 +38,30 @@
 		multiplierUpdate: ({ multiplier: newMultiplier }) => {
 			multiplier = newMultiplier;
 			
+			// Clear any existing animation timeout
+			if (animationTimeout) {
+				clearTimeout(animationTimeout);
+			}
+			
 			// Animate scale on update
 			animationScale = 1.5;
-			setTimeout(() => {
+			animationTimeout = setTimeout(() => {
 				animationScale = 1.2;
-				setTimeout(() => {
+				animationTimeout = setTimeout(() => {
 					animationScale = 1.0;
+					animationTimeout = undefined;
 				}, 150);
 			}, 150);
 		},
+	});
+
+	// Cleanup on unmount
+	$effect(() => {
+		return () => {
+			if (animationTimeout) {
+				clearTimeout(animationTimeout);
+			}
+		};
 	});
 
 	// Format multiplier text

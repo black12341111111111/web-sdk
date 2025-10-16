@@ -25,6 +25,15 @@
 	let show = $state(true);
 	let stickyPositions = $state<{ reel: number; row: number }[]>([]);
 
+	// Derived positions with computed coordinates
+	const stickyPositionsWithCoords = $derived(
+		stickyPositions.map((position) => ({
+			...position,
+			x: getSymbolX(position.reel),
+			y: context.stateGameDerived.boardLayout().y + position.row * SYMBOL_SIZE,
+		}))
+	);
+
 	// Subscribe to sticky wild events
 	context.eventEmitter.subscribeOnMount({
 		stickyWildsShow: () => {
@@ -44,18 +53,14 @@
 			stickyPositions = [];
 		},
 	});
-
-	// Get board layout for positioning
-	const boardX = $derived(context.stateGameDerived.boardLayout().x);
-	const boardY = $derived(context.stateGameDerived.boardLayout().y);
 </script>
 
 {#if show}
 	<!-- Sticky wild indicators -->
-	{#each stickyPositions as position (JSON.stringify(position))}
+	{#each stickyPositionsWithCoords as position (JSON.stringify(position))}
 		<Container
-			x={getSymbolX(position.reel)}
-			y={boardY + position.row * SYMBOL_SIZE}
+			x={position.x}
+			y={position.y}
 		>
 			<!-- Border/frame to indicate sticky -->
 			<Graphics

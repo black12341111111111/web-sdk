@@ -32,6 +32,11 @@
 			amount = winAmount;
 			positions = winPositions;
 			
+			// Clear any existing interval
+			if (countUpInterval) {
+				clearInterval(countUpInterval);
+			}
+			
 			// Start count-up animation
 			countUpAmount = 0;
 			const duration = 2000; // 2 seconds
@@ -48,7 +53,7 @@
 				} else {
 					countUpAmount += increment;
 				}
-			}, interval) as unknown as number;
+			}, interval);
 		},
 
 		winHide: () => {
@@ -58,6 +63,15 @@
 				countUpInterval = undefined;
 			}
 		},
+	});
+
+	// Cleanup on unmount
+	$effect(() => {
+		return () => {
+			if (countUpInterval) {
+				clearInterval(countUpInterval);
+			}
+		};
 	});
 
 	// Format amount for display
