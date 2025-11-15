@@ -1,0 +1,343 @@
+// Official Stake Engine SDK asset loading pattern
+// Maps Crypto Stacks Metavault symbols to existing template assets as placeholders
+
+export default {
+	// Loader (preload)
+	loader: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/loader/loader.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/loader/loader.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
+	
+	pressToContinueText: {
+		type: 'sprites',
+		src: new URL('../../static/assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url).href,
+		preload: true,
+	},
+
+	// Symbol assets - Low symbols (0-5)
+	// Mapped to existing template symbols as placeholders
+	'9': {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols/symbols.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols/l1.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	'10': {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols/symbols.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols/l2.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	J: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols/symbols.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols/l3.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	Q: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols/symbols.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols/l4.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	K: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols/symbols.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols/h5.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	A: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols/symbols.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols/h4.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// Symbol assets - Medium symbols (6-9)
+	// Mapped to existing template symbols as placeholders
+	M1: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols/symbols.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols/h3.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	M2: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols/symbols.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols/h2.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	M3: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols/symbols.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols/h1.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	M4: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols2/symbols2.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols2/M.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// Symbol assets - Premium and special (10-13)
+	DIAMOND: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols2/symbols2.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols2/M.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	SCATTER: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols2/symbols2.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols2/S.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	WILD: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols3/symbols3.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols3/W.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	CHIP: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols3/symbols3.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols3/explosion.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// UI Elements
+	reelsFrame: {
+		type: 'sprites',
+		src: new URL('../../static/assets/sprites/reelsFrame/reels_frame.json', import.meta.url).href,
+	},
+	
+	payFrame: {
+		type: 'sprite',
+		src: new URL('../../static/assets/sprites/payFrame/payFrame.png', import.meta.url).href,
+	},
+
+	// Animations
+	anticipation: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/anticipation/anticipation.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/anticipation/anticipation.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	explosion: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/symbols3/symbols3.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/symbols3/explosion.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// Win animations
+	bigwin: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/bigwin/big_wins.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/bigwin/mm_bigwin.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// Free spin screens
+	fsIntro: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/fsIntro/fs_screen.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/fsIntro/fs_screen.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	fsIntroNumber: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/fsIntro/fs_screen.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/fsIntro/fs_screen_number.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	fsOutroNumber: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/fsIntro/fs_screen.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/fsIntro/fs_total_number.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// Background animations
+	foregroundAnimation: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/foregroundAnimation/mm_bg.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/foregroundAnimation/mm_bg.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
+
+	foregroundFeatureAnimation: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/foregroundFeatureAnimation/mm_bg_feature.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/foregroundFeatureAnimation/mm_bg_feature.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
+
+	transition: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/transition/transition.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/transition/transition.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// Multiplier (reusing globalMultiplier for wild multipliers and chip collection)
+	globalMultiplier: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/globalMultiplier/multiframe.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/globalMultiplier/multiframe.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	reelhouse: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/reelhouse/reelhouse_glow.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/reelhouse/reelhouse_glow.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// Fonts
+	goldFont: {
+		type: 'font',
+		src: new URL('../../static/assets/fonts/goldFont/mm_gold.xml', import.meta.url).href,
+	},
+
+	goldBlur: {
+		type: 'font',
+		src: new URL('../../static/assets/fonts/goldBlur/miningfont_gold_blur.xml', import.meta.url).href,
+	},
+
+	silverFont: {
+		type: 'font',
+		src: new URL('../../static/assets/fonts/silverFont/mm_silver.xml', import.meta.url).href,
+	},
+
+	purpleFont: {
+		type: 'font',
+		src: new URL('../../static/assets/fonts/purpleFont/mm_purple.xml', import.meta.url).href,
+	},
+
+	// Sprites
+	freeSpins: {
+		type: 'sprites',
+		src: new URL('../../static/assets/sprites/freeSpins/freeSpins.json', import.meta.url).href,
+	},
+
+	winSmall: {
+		type: 'sprites',
+		src: new URL('../../static/assets/sprites/winSmall/MM_Localisation_winsmall.json', import.meta.url).href,
+	},
+
+	symbolsStatic: {
+		type: 'sprites',
+		src: new URL('../../static/assets/sprites/symbolsStatic/symbolsStatic.json', import.meta.url).href,
+	},
+
+	progressBar: {
+		type: 'sprites',
+		src: new URL('../../static/assets/sprites/progressBar/progressBar.json', import.meta.url).href,
+		preload: true,
+	},
+
+	// Cluster win (can be reused for chip collection animation)
+	clusterWin: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/clusterWin/clusterpay.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/clusterWin/clusterpay.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// Tumble win (can be reused for symbol upgrade animation)
+	tumble_multiplier: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/tumbleWin/tumble_win.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/tumbleWin/tumble_multiplier.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	tumble_win: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../static/assets/spines/tumbleWin/tumble_win.atlas', import.meta.url).href,
+			skeleton: new URL('../../static/assets/spines/tumbleWin/tumble_win.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+
+	// Coins animation
+	coins: {
+		type: 'spriteSheet',
+		src: new URL('../../static/assets/sprites/coin/SD2_Coin.json', import.meta.url).href,
+	},
+
+	// Audio
+	sound: {
+		type: 'audio',
+		src: new URL('../../static/assets/audio/sounds.json', import.meta.url).href,
+		preload: true,
+	},
+} as const;

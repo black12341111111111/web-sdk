@@ -1,0 +1,40 @@
+{
+  "symbols": {
+    "low": [
+      "9",
+      "10",
+      "J",
+      "Q",
+      "K",
+      "A"
+    ],
+    "medium": [
+      "M1",
+      "M2",
+      "M3",
+      "M4"
+    ],
+    "premium": [
+      "DIAMOND"
+    ],
+    "special": [
+      "SCATTER",
+      "WILD",
+      "CHIP"
+    ]
+  },
+  "backgrounds": [
+    "background_base",
+    "background_freespins"
+  ],
+  "ui": [
+    "reels_frame",
+    "game_logo"
+  ],
+  "dimensions": {
+    "symbols": "512x512",
+    "backgrounds": "1920x1080",
+    "logo": "800x200",
+    "frame": "1400x900"
+  }
+}
