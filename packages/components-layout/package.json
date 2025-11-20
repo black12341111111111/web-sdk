@@ -6,7 +6,7 @@
 	"scripts": {
 		"format": "prettier --write --ignore-path=../../.prettierignore .",
 		"lint": "eslint \"src\"",
-		"storybook": "PUBLIC_CHROMATIC=true storybook dev -p 5003 --no-open public"
+		"storybook": "PUBLIC_CHROMATIC=true storybook dev -p 5003 --no-open"
 	},
 	"type": "module",
 	"devDependencies": {
