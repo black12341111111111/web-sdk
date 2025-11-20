@@ -8,7 +8,7 @@
 	"scripts": {
 		"format": "prettier --write --ignore-path=../../.prettierignore .",
 		"lint": "eslint \"src\"",
-		"storybook": "PUBLIC_CHROMATIC=true storybook dev -p 5002 public"
+		"storybook": "PUBLIC_CHROMATIC=true storybook dev -p 5002 --no-open"
 	},
 	"type": "module",
 	"devDependencies": {
@@ -20,8 +20,7 @@
 		"config-lingui": "workspace:*",
 		"config-storybook": "workspace:*",
 		"@lingui/core": "5.2.0",
-		"chromatic": "11.26.1",
-		"@storybook/addon-svelte-csf": "5.0.5",
+		"chromatic": "13.3.4",
 		"@sveltejs/vite-plugin-svelte": "5.0.3"
 	},
 	"dependencies": {
