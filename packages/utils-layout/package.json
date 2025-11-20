@@ -14,7 +14,7 @@
 		"config-ts": "workspace:*",
 		"config-vite": "workspace:*",
 		"config-svelte": "workspace:*",
-		"chromatic": "11.26.1",
+		"chromatic": "13.3.4",
 		"@sveltejs/vite-plugin-svelte": "5.0.3"
 	},
 	"dependencies": {
